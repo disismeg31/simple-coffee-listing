@@ -5,10 +5,13 @@
 
 body{
   background-color:#111315 ;
-  background-image: url('./assets/bg-cafe.jpg'); /* Assuming the image is in public/assets */
+  background-image: url('./assets/bg-cafe.jpg');  
   background-size:cover;
   background-position: center;
   background-repeat: no-repeat;
   height: 40vh;
   font-family: "DM Sans", sans-serif;
+}
+* {
+  box-sizing: border-box;
 }

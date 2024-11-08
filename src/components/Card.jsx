@@ -1,7 +1,7 @@
-/* eslint-disable react-hooks/exhaustive-deps */
+// /* eslint-disable react-hooks/exhaustive-deps */
 import star from '../assets/star.svg';
 import nostar from '../assets/star_fill.svg';
- import {useState,useEffect} from 'react';
+import {useState,useEffect} from 'react';
 
 function Card() {
 
@@ -18,25 +18,28 @@ const fetchData = () =>{
   .then(data => setData(data))
 }
 
-console.log(data);
-
-
+// console.log(data);
   return (
      <>
 
       {
         data.map((d)=>(
+          
      <div key={d.id} className="card-container text-[#FEF7EE] mx-3">
-
-          <div className="image ">
-        <img className="rounded-lg" src={d.image} alt="" />
+          <div className="image relative">
+            {
+            d.popular 
+            && 
+            <span className='flex justify-center items-center left-2 top-2 h-6 px-3 py-1 text-sm font-semibold rounded-3xl text-[#1B1D1F] bg-[#F6C768] absolute'>Popular</span>
+            }
+          <img className="rounded-lg h-40 w-64" src={d.image} alt="" />
 
         </div>
       <div className="description flex justify-between items-center mb-2 mt-3">
         <p className=" text-lg font-semibold">{d.name}</p> 
         <span className=" w-12 h-6 p-1 bg-[#BEE3CC] text-[#1B1D1F] text-xs font-bold flex justify-center items-center rounded-md ">{d.price}</span>
       </div>
-      <div className="rating">
+      <div className="rating mb-14">
           {
             d.rating? 
             <div className='flex items-center'>
@@ -48,6 +51,14 @@ console.log(data);
              <div className='flex items-center'>
               <img src={star} alt="nostar" />
               <span className="mx-1 text-[#6F757C] font-semibold">No ratings</span>
+              {
+              
+              d.available === false  && (
+                <span className="font-bold text-[#ED735D] ml-20">Sold Out</span>
+              )
+                // d.available == false ?  null : <span className="font-bold text-[#ED735D] ml-20">Sold Out</span>
+              
+              }
              </div>
           }
         </div>
