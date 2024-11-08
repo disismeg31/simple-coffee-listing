@@ -1,6 +1,6 @@
 // /* eslint-disable react-hooks/exhaustive-deps */
-import star from '../assets/star.svg';
-import nostar from '../assets/star_fill.svg';
+import star from '../assets/Star.svg';
+import nostar from '../assets/Star_fill.svg';
 import {useState,useEffect} from 'react';
 
 function Card() {
